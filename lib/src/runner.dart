@@ -6,8 +6,6 @@ import 'isolates.dart';
 
 export 'isolates.dart' show Task, TaskWithArgs, OnStart, OnStop;
 
-const uuid = Uuid();
-
 abstract interface class Runner {
   bool get isClosed;
 
@@ -38,7 +36,7 @@ final class IsolateRunner implements Runner {
 
   Completer<void>? _completer;
 
-  final _isolateToken = uuid.v1();
+  final _isolateToken = const Uuid().v1();
 
   var _nextId = 1;
 
